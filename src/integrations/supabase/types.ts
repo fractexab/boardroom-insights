@@ -14,7 +14,36 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      early_access: {
+        Row: {
+          board_sim_choice: string | null
+          created_at: string
+          email: string
+          id: number
+          name: string
+          organisation: string | null
+          role: string | null
+        }
+        Insert: {
+          board_sim_choice?: string | null
+          created_at?: string
+          email: string
+          id?: number
+          name: string
+          organisation?: string | null
+          role?: string | null
+        }
+        Update: {
+          board_sim_choice?: string | null
+          created_at?: string
+          email?: string
+          id?: number
+          name?: string
+          organisation?: string | null
+          role?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
