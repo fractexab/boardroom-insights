@@ -653,7 +653,7 @@ function AccessForm({ t, choice }: { t: Theme; choice: Choice }) {
             Request <em style={{ color: t.accent }}>early access.</em>
           </h2>
           <p style={{ ...sans, color: t.text2, fontSize: "1rem", lineHeight: 1.8, margin: 0 }}>
-            We'll reach out when the next tools are ready for early testing.
+            We'll reach out when the Board Augumentation Suite is ready for early testing.
             No marketing list. No noise.
           </p>
         </div>
@@ -737,8 +737,7 @@ function Footer({ t }: { t: Theme }) {
   return (
     <footer style={{ background: t.bg, padding: "40px 24px", textAlign: "center", borderTop: `1px solid ${t.border}` }}>
       <p style={{ ...sans, color: t.text3, fontSize: "0.8rem", margin: 0, letterSpacing: "0.15em" }}>
-        © 2025 FRACTEX
-      </p>
+       </p>
     </footer>
   );
 }
