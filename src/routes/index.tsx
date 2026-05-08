@@ -78,7 +78,7 @@ const GRAIN_URL =
 
 /* ---------- Reveal on scroll ---------- */
 
-function useReveal() {
+function useReveal(deps: unknown[] = []) {
   useEffect(() => {
     const els = document.querySelectorAll<HTMLElement>("[data-reveal]");
     const io = new IntersectionObserver(
@@ -92,9 +92,19 @@ function useReveal() {
       },
       { threshold: 0.15 }
     );
-    els.forEach((el) => io.observe(el));
+    els.forEach((el) => {
+      if (el.getAttribute("data-revealed") === "true") return;
+      // If element is already in viewport, mark immediately (covers late-mounted nodes near top)
+      const r = el.getBoundingClientRect();
+      if (r.top < window.innerHeight * 0.95 && r.bottom > 0) {
+        el.setAttribute("data-revealed", "true");
+      } else {
+        io.observe(el);
+      }
+    });
     return () => io.disconnect();
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, deps);
 }
 
 /* ---------- Decorative numeral ---------- */
@@ -738,7 +748,7 @@ function Footer({ t }: { t: Theme }) {
 function Index() {
   const [themeKey, setThemeKey] = useState<ThemeKey>("noir");
   const [choice, setChoice] = useState<Choice>(null);
-  useReveal();
+  useReveal([choice]);
 
   useEffect(() => {
     const saved = typeof window !== "undefined" ? window.localStorage.getItem("theme") as ThemeKey | null : null;
