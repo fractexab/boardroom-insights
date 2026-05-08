@@ -78,6 +78,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:description", content: "Early access to board-level governance tools for NIS2, DORA and the EU AI Act." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
+      { name: "twitter:title", content: "Early Access — Board Governance Tools" },
+      { name: "twitter:description", content: "Early access to board-level governance tools for NIS2, DORA and the EU AI Act." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/e1254186-772a-46ef-8960-b23eb4e1add7/id-preview-0ad3ba72--460a376e-8ec0-46bc-9454-dbfa0d191c2e.lovable.app-1778185974920.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/e1254186-772a-46ef-8960-b23eb4e1add7/id-preview-0ad3ba72--460a376e-8ec0-46bc-9454-dbfa0d191c2e.lovable.app-1778185974920.png" },
     ],
     links: [
       {
